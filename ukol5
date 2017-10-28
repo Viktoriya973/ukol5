@@ -1,0 +1,45 @@
+0.Syntaxerror.
+1.Indentationerror.
+2.
+from turtle import shape, left, right, forward, exitonclick, clear
+from math import sqrt
+def domecek(HRANA):
+    COEF_PREPONA=sqrt(2)
+    for i in range(4):
+        forward(HRANA)
+        left(90)
+    left(45)
+    forward(HRANA*COEF_PREPONA)
+    left(90)
+    forward(HRANA*COEF_PREPONA/2)
+    left(90)
+    forward(HRANA*COEF_PREPONA/2)
+    left(90)
+    forward(HRANA*COEF_PREPONA)
+domecek(int(input("Zadej velikost:")))
+exitonclick()
+clear
+3.
+from turtle import shape, left, right, forward, exitonclick, clear
+from math import sqrt, tan, degrees
+def domecek(sirka, vyska):
+    COEF_PREPONA=sqrt(2)
+    PREPONA=sqrt((sirka*sirka)+(vyska*vyska))
+    forward(sirka)
+    left(90)
+    forward(vyska)
+    left(90)
+    forward(sirka)
+    left(90)
+    forward(vyska)
+    left(degrees(tan(vyska/sirka)))
+    forward(PREPONA)
+    left(degrees(tan(sirka/vyska)))
+    forward(vyska*COEF_PREPONA/2)
+    left(90)
+    forward(vyska*COEF_PREPONA/2)
+    left(degrees(tan(sirka/vyska)))
+    forward(PREPONA)
+domecek(int(input("Zadej sirku:")), int(input("Zadej vysku:")) )
+exitonclick()
+clear
