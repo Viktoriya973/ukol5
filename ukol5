@@ -197,3 +197,21 @@ while True:
     print(pole[:cislo_policka] + symbol + pole[cislo_policka + 1:])
 tah((str(input("Zadejte pole: "))), (int(input("Zadejte cislo policka: "))), (str(input("Zadejte znak: "))))
 
+11.
+pole="-"*20
+while True:
+    def tah_hrace(pozice):
+        global pole
+        if pozice<0 or pozice > 20:
+            print("Zkus znovu")
+            return tah_hrace
+        if "x" in pole[pozice]:
+            print("Uz policka je obsazena, zkus jeste jednou")
+            return tah_hrace
+        pole=pole[:pozice]+"x"+pole[pozice+1:]
+        print(pole)
+    tah_hrace((int(input('Zadej pozice: '))))
+
+12.
+
+
