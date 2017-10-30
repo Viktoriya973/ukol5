@@ -173,4 +173,27 @@ if m<soucet4:
     k="Hrac4"
 print("Vyhral", k)
 9.
+pole="-"*20
+cislo=0
+while True:
+    def hra(pozice, znak):
+        global cislo
+        global pole
+        cislo+=1
+        pole=pole[:pozice]+znak+pole[pozice+1:]
+        print(cislo,".kolo: ", pole)
+        if 'xxx' in pole:
+            print('X')
+        elif 'ooo' in pole:
+            print("0")
+        elif '-' not in pole:
+            print('!')
+        else:
+            print('-')
+    hra((int(input('Zadej pozice: '))), (str(input('Zadej znak: '))))
+   
+  10.
+  def tah(pole, cislo_policka, symbol):
+    print(pole[:cislo_policka] + symbol + pole[cislo_policka + 1:])
+tah((str(input("Zadejte pole: "))), (int(input("Zadejte cislo policka: "))), (str(input("Zadejte znak: "))))
 
