@@ -213,5 +213,52 @@ while True:
     tah_hrace((int(input('Zadej pozice: '))))
 
 12.
+from random import randrange
+pole="-"*20
+while True:
+    def tah_pocitace(pozice):
+        global pole
+        if "x" not in pole[pozice]:
+            pole=pole[:pozice]+"x"+pole[pozice+1:]
+            print(pole)
+        else:
+            return tah_pocitace
+    tah_pocitace(randrange(0,20))
+  
+13.
+from random import randrange
+pole="-"*20
+def tah_hrace(pozice):
+    global pole
+    if pozice<0 or pozice > 20:
+        print("Zkus znovu")
+        return tah_hrace
+    if "x" or "o" in pole[pozice]:
+        print("Uz policka je obsazena, zkus jeste jednou")
+        return tah_hrace
+    pole=pole[:pozice]+"x"+pole[pozice+1:]
+    return pole
 
+def tah_pocitace(pozice):
+    global pole
+    if "x" or "o" not in pole[pozice]:
+        pole=pole[:pozice]+"o"+pole[pozice+1:]
+        print(pole)
+    else:
+        return tah_pocitace
+
+def piskvorky1d ():
+    pole= "-"*20
+    while True:
+        print(tah_hrace(int(input('Zadej pozice: '))))
+        if 'xxx' in pole:
+            print("x")
+        if 'ooo' in pole:
+            print("o")
+        if '-' not in pole:
+            print('!')
+        else:
+            print ('-')
+        print(tah_pocitace(randrange(0,20)))
+print(piskvorky1d())
 
