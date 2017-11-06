@@ -231,34 +231,35 @@ pole="-"*20
 def tah_hrace(pozice):
     global pole
     if pozice<0 or pozice > 20:
+        tah_hrace(int(input('Zkus znovu, je to velke cislo: ')))
+    if  "o" in pole[pozice-1]:
         print("Zkus znovu")
-        return tah_hrace
-    if "x" or "o" in pole[pozice]:
-        print("Uz policka je obsazena, zkus jeste jednou")
-        return tah_hrace
-    pole=pole[:pozice]+"x"+pole[pozice+1:]
+        tah_hrace(int(input('Uz je obsazena zkus znovu: ')))
+    pole=pole[:pozice-1]+"x"+pole[pozice:]
     return pole
 
 def tah_pocitace(pozice):
     global pole
-    if "x" or "o" not in pole[pozice]:
-        pole=pole[:pozice]+"o"+pole[pozice+1:]
-        print(pole)
-    else:
-        return tah_pocitace
+    pole=pole[:pozice-1]+"o"+pole[pozice:]
+    return pole
+    if "x" or "o"  in pole[pozice]:
+        tah_pocitace(randrange(0,20))
 
-def piskvorky1d ():
-    pole= "-"*20
+def piskvorky1d (po):
     while True:
-        print(tah_hrace(int(input('Zadej pozice: '))))
+        print(tah_hrace((int(input('Zadej pozice: ')))))
         if 'xxx' in pole:
-            print("x")
+            print('x')
+            break
         if 'ooo' in pole:
             print("o")
+            break
         if '-' not in pole:
             print('!')
+            break
         else:
             print ('-')
         print(tah_pocitace(randrange(0,20)))
-print(piskvorky1d())
+piskvorky1d("-"*20)
+
 
